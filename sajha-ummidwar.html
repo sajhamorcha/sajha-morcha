@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="साझा मोर्चा — साझा उम्मीदवार डेमो फॉर्म">
+
+    <title>
+        साझा उम्मीदवार | आवेदन फॉर्म
+    </title>
+
+        <link rel="stylesheet" href="./assets/form.css">
+<style>
+.form-error {
+    display: none;
+    margin: 0 38px 25px;
+    padding: 15px 18px;
+    background: #fff3f3;
+    border: 1px solid #efc1c1;
+    border-left: 5px solid #c9141e;
+    border-radius: 12px;
+    color: #8a1c1c;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.7;
+    box-shadow: 0 6px 18px rgba(138,28,28,.06);
+}
+.form-error.show {
+    display: block;
+    animation: formErrorIn .25s ease;
+}
+.form-error strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 15px;
+}
+.field-error {
+    border-color: #c9141e !important;
+    box-shadow: 0 0 0 3px rgba(201,20,30,.08) !important;
+    background: #fffafa !important;
+}
+.photo-upload.field-error,
+.signature-upload.field-error {
+    border-color: #c9141e !important;
+    box-shadow: 0 0 0 3px rgba(201,20,30,.08) !important;
+}
+@keyframes formErrorIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width:800px) {
+    .form-error {
+        margin: 0 18px 22px;
+        font-size: 13px;
+    }
+}
+</style>
+
+
+</head>
+
+
+<body>
+
+</head>
+
+<body>
+<div class="actions">
+    <button class="btn btn-secondary" type="button" onclick="window.print()">प्रिंट / PDF</button>
+    <a href="/index.html" class="btn btn-secondary">← मुख्य पृष्ठ पर जाएँ (Home)</a>
+</div>
+
+<div class="status" id="status">
+    आवेदन तैयार है। जानकारी सर्वर पर भेजी गई है।
+</div>
+
+<main class="page">
+
+<form
+    id="candidateForm"
+    action="https://formsubmit.co/morchasajha@gmail.com"
+    method="POST"
+    enctype="multipart/form-data">
+
+    <div id="formError"
+         class="form-error"
+         role="alert"
+         aria-live="polite"></div>
+    <!-- FormSubmit settings -->
+    <input type="hidden" name="_subject" value="नया साझा मोर्चा आवेदन">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- FormSubmit requires an absolute HTTPS redirect URL.
+         JavaScript below sets this automatically from the live website URL. -->
+   <input
+    type="hidden"
+    name="_next"
+    id="formSubmitNext"
+    value="/thankyou.html">
+    
+
+    <!-- Honeypot spam protection -->
+    <input type="text"
+           name="_honey"
+           tabindex="-1"
+           autocomplete="off"
+           style="display:none">
+           
+
+<header class="form-header">
+
+    <img src="./pictures/logo.jpeg" alt="साझा मोर्चा लोगो" class="logo">
+
+    <h1 class="form-title">साझा उम्मीदवार आवेदन फॉर्म</h1>
+    <p class="form-subtitle"></p>
+
+    <label class="photo-upload" for="photo">
+        <span id="photoText">पासपोर्ट साइज<br>फोटो<br><small>फोटो चुनें</small></span>
+        <img id="photoPreview" alt="उम्मीदवार की फोटो">
+    </label>
+
+    <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" required>
+
+</header>
+
+
+<!-- 1 -->
+<div class="form-row">
+    <label class="form-label" for="fullName">
+        1. पूरा नाम (Full Name) <span class="required">*</span> :
+    </label>
+    <input class="line-input" id="fullName" name="fullName" required autocomplete="name">
+</div>
+
+<!-- 2 -->
+<div class="form-row">
+    <label class="form-label" for="parentName">
+        2. पिता/पति का नाम (Father's / Husband's Name) <span class="required">*</span> :
+    </label>
+    <input class="line-input" id="parentName" name="parentName" required>
+</div>
+
+<!-- 3 -->
+<div class="form-row">
+    <label class="form-label" for="gender">
+        3. लिंग (Gender) <span class="required">*</span> :
+    </label>
+    <select class="inline-select" id="gender" name="gender" required>
+        <option value="">चुनें</option>
+        <option>पुरुष</option>
+        <option>महिला</option>
+        <option>अन्य</option>
+    </select>
+</div>
+
+<!-- 4 -->
+<div class="form-row">
+    <label class="form-label" for="mobile">
+        4. मोबाइल नं. (Mobile Number) <span class="required">*</span> :
+    </label>
+    <input class="line-input" id="mobile" name="mobile" type="tel"
+           inputmode="numeric" maxlength="10" pattern="[0-9]{10}"
+           required autocomplete="tel">
+</div>
+
+<!-- 6 -->
+<div class="grid-4">
+    <div class="field-inline">
+        <label class="form-label" for="state">6. राज्य (State) :</label>
+        <input class="line-input" id="state" name="state">
+    </div>
+
+    <div class="field-inline">
+        <label class="form-label" for="district">जिला (District) :</label>
+        <input class="line-input" id="district" name="district">
+    </div>
+
+    <div class="field-inline">
+        <label class="form-label" for="lokSabha">लोकसभा (Lok Sabha) :</label>
+        <input class="line-input" id="lokSabha" name="lokSabha">
+    </div>
+
+    <div class="field-inline">
+        <label class="form-label" for="assembly">(विधानसभा) Assembly :</label>
+        <input class="line-input" id="assembly" name="assembly">
+    </div>
+</div>
+
+<!-- 7 -->
+<div class="form-row full-row">
+    <label class="form-label" for="address">
+        7. पता (Address) <span class="required">*</span> :
+    </label>
+    <textarea class="textarea-line" id="address" name="address" required></textarea>
+</div>
+
+<!-- 8 -->
+<div class="form-row">
+    <label class="form-label" for="community">
+        8. समाज/जाति (Community/Caste) :
+    </label>
+    <input class="line-input" id="community" name="community">
+</div>
+
+<!-- 9 -->
+<div class="form-row">
+    <label class="form-label" for="occupation">
+        9. व्यवसाय (Occupation) :
+    </label>
+    <input class="line-input" id="occupation" name="occupation">
+</div>
+
+<!-- 10 -->
+<div class="form-row class-row">
+    <span class="form-label">10. वर्ग (Class) :</span>
+
+    <div class="class-options">
+        <label class="class-option">
+            <input type="radio" name="class" value="डीएटी संघर्ष समिति">
+            डीएनटी
+        </label>
+
+        <label class="class-option">
+            <input type="radio" name="class" value="वंचित ओबीसी संघर्ष समिति">
+            ओबीसी 
+        </label>
+
+        <label class="class-option">
+            <input type="radio" name="class" value="वंचित एससी संघर्ष समिति">
+            एससी 
+        </label>
+
+        <label class="class-option">
+            <input type="radio" name="class" value="वंचित एसटी संघर्ष समिति">
+           एसटी
+        </label>
+
+        <label class="class-option">
+            <input type="radio" name="class" value="प्लस (जनरल) संघर्ष समिति">
+           जनरल
+        </label>
+    </div>
+</div>
+
+<!-- 11 -->
+<div class="form-row">
+    <label class="form-label" for="wardNumber">
+        11. वार्ड नंबर :
+    </label>
+    <input class="line-input" id="wardNumber" name="wardNumber">
+</div>
+
+<!-- 12 -->
+<div class="form-row">
+    <label class="form-label" for="localBody">
+        12. पंचायत/ नगर निकाय का नाम :
+    </label>
+    <input class="line-input" id="localBody" name="localBody">
+</div>
+
+
+<!-- 13 -->
+<div class="form-row">
+    <label class="form-label" for="education">
+        13. शैक्षणिक योग्यता (Education Qualification) :
+    </label>
+    <input class="line-input" id="education" name="education">
+</div>
+
+<!-- 14 -->
+<div class="form-row">
+    <label class="form-label" for="aadhaar">
+        14. आधार संख्या (Aadhaar Number) :
+    </label>
+    <input class="line-input" id="aadhaar" name="aadhaar"
+           type="text" inputmode="numeric" maxlength="12"
+           pattern="[0-9]{12}" autocomplete="off">
+</div>
+
+<!-- 15 -->
+<div class="form-row">
+    <label class="form-label" for="political">
+        15. पूर्व राजनीतिक संबद्धता (यदि कोई हो) :
+    </label>
+    <input class="line-input" id="political" name="political">
+</div>
+
+<!-- 16 -->
+<div class="form-row full-row">
+    <label class="form-label" for="socialWork">
+        16. सामाजिक कार्य / विभिन्न आंदोलनों में सहभागिता का विवरण :
+    </label>
+    <textarea class="textarea-line" id="socialWork" name="socialWork"></textarea>
+</div>
+
+<!-- 17 -->
+<div class="form-row full-row">
+    <label class="form-label" for="criminal">
+        17. आपराधिक रिकॉर्ड और मुकदमों का ब्यौरा :
+    </label>
+    <textarea class="textarea-line" id="criminal" name="criminal"></textarea>
+</div>
+
+<!-- 18 -->
+<div class="form-row full-row">
+    <label class="form-label" for="electionDetails">
+        18. यदि आप पंचायत या निकाय चुनाव लड़ना चाहते हैं तो उसकी डिटेल लिखें <br>
+        (पंचायत का नाम, वोटों की संख्या, कौन कौन से समाज है आदि) :
+    </label>
+    <textarea class="textarea-line" id="electionDetails" name="electionDetails"></textarea>
+</div>
+
+
+<div class="note">
+    <strong>Note :</strong>
+    मैं घोषणा करता/करती हूँ कि मेरे द्वारा दी गई सभी जानकारी सत्य एवं सही हैं।
+    मैं वर्तमान में किसी अन्य राजनीतिक दल का सदस्य नहीं हूँ तथा साझा मोर्चा के
+    संविधान, नियमों एवं अनुशासन का पूर्ण निष्ठा एवं ईमानदारी से पालन करूँगा/करूँगी।
+</div>
+
+
+<div class="bottom-row">
+
+    <div class="date-place">
+        दिनांक :
+        <input class="signature-input" id="date" name="application_date" type="text"
+               style="width:150px;text-align:left"
+               readonly>
+        <br>
+        स्थान :
+        <input class="signature-input" id="place" name="place" type="text"
+               style="width:150px;text-align:left">
+    </div>
+
+    <div class="signature">
+        <label class="signature-upload" for="signature">
+            <span id="signatureText">हस्ताक्षर अपलोड करें<br><small>Gallery / Files से चुनें</small></span>
+            <img id="signaturePreview" alt="उम्मीदवार के हस्ताक्षर का पूर्वावलोकन">
+        </label>
+
+        <input
+            id="signature"
+            name="signature"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            required>
+
+        <div class="signature-caption">
+            उम्मीदवार के हस्ताक्षर <span class="required">*</span>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="actions" style="width:100%; margin-top:30px;">
+        <button
+            class="btn btn-primary"
+            type="submit">
+            आवेदन जमा करें <br> Submit your form
+        </button>
+    </div>
+
+</form>
+
+
+</main>
+
+
+
+<script>
+const form = document.getElementById("candidateForm");
+
+const photoInput = document.getElementById("photo");
+const photoPreview = document.getElementById("photoPreview");
+const photoText = document.getElementById("photoText");
+
+const signatureInput = document.getElementById("signature");
+const signaturePreview = document.getElementById("signaturePreview");
+const signatureText = document.getElementById("signatureText");
+
+const statusBox = document.getElementById("status");
+const mobile = document.getElementById("mobile");
+const aadhaar = document.getElementById("aadhaar");
+
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
+const allowedImageTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+];
+
+function validateImageFile(file, fieldName) {
+    if (!file) return false;
+
+    if (!allowedImageTypes.includes(file.type)) {
+        alert(
+            fieldName +
+            " के लिए केवल JPG, PNG या WEBP image चुनें।"
+        );
+        return false;
+    }
+
+    if (file.size > MAX_IMAGE_SIZE) {
+        alert(
+            fieldName +
+            " का आकार 5 MB से अधिक नहीं होना चाहिए।"
+        );
+        return false;
+    }
+
+    return true;
+}
+
+document.getElementById("date").value =
+    new Date().toLocaleDateString("hi-IN");
+
+mobile.addEventListener("input", function(){
+    this.value = this.value.replace(/\D/g,"").slice(0,10);
+});
+
+aadhaar.addEventListener("input", function(){
+    this.value = this.value.replace(/\D/g,"").slice(0,12);
+});
+
+photoInput.addEventListener("change", function(){
+    const file = this.files[0];
+
+    if (!file) {
+        photoPreview.style.display = "none";
+        photoText.style.display = "block";
+        return;
+    }
+
+    if (!validateImageFile(file, "फोटो")) {
+        this.value = "";
+        photoPreview.style.display = "none";
+        photoText.style.display = "block";
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        photoPreview.src = e.target.result;
+        photoPreview.style.display = "block";
+        photoText.style.display = "none";
+    };
+
+    reader.readAsDataURL(file);
+});
+
+
+/* ==============================
+   SIGNATURE UPLOAD + PREVIEW
+   ============================== */
+
+signatureInput.addEventListener("change", function() {
+    const file = this.files[0];
+
+    if (!file) {
+        signaturePreview.style.display = "none";
+        signatureText.style.display = "block";
+        return;
+    }
+
+    if (!validateImageFile(file, "हस्ताक्षर")) {
+        this.value = "";
+        signaturePreview.style.display = "none";
+        signatureText.style.display = "block";
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        signaturePreview.src = e.target.result;
+        signaturePreview.style.display = "block";
+        signatureText.style.display = "none";
+    };
+
+    reader.readAsDataURL(file);
+});
+
+/* =========================================================
+   FORM VALIDATION + SUBMISSION
+   ========================================================= */
+
+const formError = document.getElementById("formError");
+
+function showFormError(message, element = null) {
+
+    formError.innerHTML =
+        "<strong>⚠ कृपया आवश्यक जानकारी पूरी करें</strong>" +
+        message;
+
+    formError.classList.add("show");
+
+    if (element) {
+
+        element.classList.add("field-error");
+
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        setTimeout(function() {
+
+            if (
+                element.tagName === "INPUT" ||
+                element.tagName === "SELECT" ||
+                element.tagName === "TEXTAREA"
+            ) {
+                element.focus();
+            }
+
+        }, 350);
+    }
+}
+
+function clearFormError() {
+
+    formError.classList.remove("show");
+    formError.innerHTML = "";
+
+    document
+        .querySelectorAll(".field-error")
+        .forEach(function(element) {
+            element.classList.remove("field-error");
+        });
+}
+
+
+/* Clear the message as soon as the candidate starts correcting a field */
+
+form.querySelectorAll("input, select, textarea").forEach(function(field) {
+
+    field.addEventListener("input", clearFormError);
+    field.addEventListener("change", clearFormError);
+
+});
+
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    clearFormError();
+
+    const submitButton =
+        form.querySelector('button[type="submit"]');
+
+
+    /* 1. PHOTO */
+
+    if (!photoInput.files.length) {
+
+        showFormError(
+            "सबसे पहले उम्मीदवार का पासपोर्ट साइज फोटो अपलोड करें।",
+            document.querySelector(".photo-upload")
+        );
+
+        return;
+    }
+
+
+    /* 2. SIGNATURE */
+
+    if (!signatureInput.files.length) {
+
+        showFormError(
+            "उम्मीदवार के हस्ताक्षर की फोटो अपलोड करना अनिवार्य है।",
+            document.querySelector(".signature-upload")
+        );
+
+        return;
+    }
+
+
+    /* 3. ALL REQUIRED FIELDS + PATTERN VALIDATION */
+
+    const invalidField =
+        form.querySelector(":invalid");
+
+    if (invalidField) {
+
+        let message =
+            "जिन fields के आगे (*) लगा है, उन्हें भरना अनिवार्य है।";
+
+
+        if (invalidField.id === "fullName") {
+            message = "कृपया अपना पूरा नाम दर्ज करें।";
+        }
+
+        else if (invalidField.id === "parentName") {
+            message = "कृपया पिता/पति का नाम दर्ज करें।";
+        }
+
+        else if (invalidField.id === "gender") {
+            message = "कृपया अपना लिंग चुनें।";
+        }
+
+        else if (invalidField.id === "mobile") {
+            message = "कृपया 10 अंकों का सही मोबाइल नंबर दर्ज करें।";
+        }
+
+        else if (invalidField.id === "address") {
+            message = "कृपया अपना पूरा पता दर्ज करें।";
+        }
+
+
+        showFormError(
+            message,
+            invalidField
+        );
+
+        return;
+    }
+
+
+    /* 4. THANK-YOU PAGE */
+
+    const thankYouUrl =
+        new URL(
+            "thankyou.html",
+            window.location.href
+        ).href;
+
+    document.getElementById("formSubmitNext").value =
+        thankYouUrl;
+
+
+    /* 5. SUBMIT */
+
+    if (submitButton) {
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "आवेदन भेजा जा रहा है...";
+
+        submitButton.style.opacity = "0.7";
+
+        submitButton.style.cursor = "wait";
+    }
+
+
+    /*
+       Native submission preserves multipart/form-data,
+       so the photograph and signature are sent to FormSubmit.
+    */
+
+    HTMLFormElement.prototype.submit.call(form);
+
+});
+
+</script>
+
+
+</body>
+
+</html>
