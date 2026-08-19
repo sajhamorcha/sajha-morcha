@@ -42,6 +42,93 @@ videoCards.forEach(card => {
   });
 });
 
+/* =====================================================
+   CAMPAIGN VIDEO SECTION 02
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const campaignVideo02 =
+        document.getElementById(
+            "campaignVideo02"
+        );
+
+
+    const campaignVideoSource02 =
+        document.getElementById(
+            "campaignVideoSource02"
+        );
+
+
+    const campaignVideoCards02 =
+        document.querySelectorAll(
+            ".campaign-video-card-02"
+        );
+
+
+    campaignVideoCards02.forEach(
+        function (card) {
+
+            card.addEventListener(
+                "click",
+                function () {
+
+                    const file =
+                        card.dataset.video;
+
+
+                    if (!file) {
+                        return;
+                    }
+
+
+                    /* Change video */
+
+                    campaignVideoSource02.src =
+                        file;
+
+
+                    /* Reload */
+
+                    campaignVideo02.load();
+
+
+                    /* Play */
+
+                    campaignVideo02
+                        .play()
+                        .catch(function () {
+                            // Browser autoplay restriction
+                        });
+
+
+                    /* Remove active */
+
+                    campaignVideoCards02.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    /* Add active */
+
+                    card.classList.add(
+                        "active"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+});
+
 /* =========================
    CHATBOT
 ========================= */
@@ -328,160 +415,191 @@ updateCarousel();
    ACTIVITIES CAROUSEL
 ========================================================= */
 
-const activityTrack =
-    document.getElementById("activityTrack");
+document.addEventListener("DOMContentLoaded", () => {
 
-const activityPrev =
-    document.getElementById("activityPrev");
-
-const activityNext =
-    document.getElementById("activityNext");
-
-const activityDots =
-    document.getElementById("activityDots");
-
-const activityImages =
-    document.querySelectorAll(".activity-image");
+    const activityCards =
+        document.querySelectorAll(".activity-card");
 
 
-let currentActivity = 0;
+    activityCards.forEach((card) => {
+
+        const track =
+            card.querySelector(".activity-track");
+
+        const prevButton =
+            card.querySelector(".activity-prev");
+
+        const nextButton =
+            card.querySelector(".activity-next");
+
+        const dotsContainer =
+            card.querySelector(".activity-dots");
+
+        const slides =
+            card.querySelectorAll(".activity-image");
 
 
-/* Create dots */
-
-activityImages.forEach((image, index) => {
-
-    const dot =
-        document.createElement("button");
-
-    dot.className = "activity-dot";
-
-    dot.setAttribute(
-        "aria-label",
-        "गतिविधि " + (index + 1)
-    );
-
-    dot.addEventListener("click", () => {
-
-        currentActivity = index;
-
-        updateActivityCarousel();
-
-    });
-
-    activityDots.appendChild(dot);
-
-});
+        if (
+            !track ||
+            !prevButton ||
+            !nextButton ||
+            !dotsContainer ||
+            slides.length === 0
+        ) {
+            return;
+        }
 
 
-const activityDotItems =
-    document.querySelectorAll(".activity-dot");
+        let currentIndex = 0;
 
 
-/* Update carousel */
+        /* =========================================
+           CREATE DOTS
+        ========================================= */
 
-function updateActivityCarousel() {
+        slides.forEach((slide, index) => {
 
-    const mobile =
-        window.innerWidth <= 800;
+            const dot =
+                document.createElement("button");
 
-    const visibleImages =
-        mobile ? 1 : 2;
+            dot.type = "button";
 
-    const maxIndex =
-        Math.max(
-            0,
-            activityImages.length - visibleImages
+            dot.className =
+                "activity-dot";
+
+            dot.setAttribute(
+                "aria-label",
+                `गतिविधि फोटो ${index + 1}`
+            );
+
+
+            if (index === 0) {
+                dot.classList.add("active");
+            }
+
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    currentIndex = index;
+
+                    updateCarousel();
+
+                }
+            );
+
+
+            dotsContainer.appendChild(dot);
+
+        });
+
+
+        const dots =
+            dotsContainer.querySelectorAll(
+                ".activity-dot"
+            );
+
+
+        /* =========================================
+           UPDATE CAROUSEL
+        ========================================= */
+
+        function updateCarousel() {
+
+            /*
+             * Each image takes 100% of the visible
+             * carousel width.
+             */
+
+            track.style.transform =
+                `translateX(-${currentIndex * 100}%)`;
+
+
+            dots.forEach(
+                (dot, index) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        index === currentIndex
+                    );
+
+                }
+            );
+
+
+            /*
+             * Disable previous button
+             * on first image.
+             */
+
+            prevButton.disabled =
+                currentIndex === 0;
+
+
+            /*
+             * Disable next button
+             * on last image.
+             */
+
+            nextButton.disabled =
+                currentIndex ===
+                slides.length - 1;
+
+        }
+
+
+        /* =========================================
+           NEXT
+        ========================================= */
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    currentIndex <
+                    slides.length - 1
+                ) {
+
+                    currentIndex++;
+
+                    updateCarousel();
+
+                }
+
+            }
         );
 
 
-    if (currentActivity > maxIndex) {
-        currentActivity = maxIndex;
-    }
+        /* =========================================
+           PREVIOUS
+        ========================================= */
 
-    if (currentActivity < 0) {
-        currentActivity = 0;
-    }
+        prevButton.addEventListener(
+            "click",
+            () => {
 
+                if (
+                    currentIndex > 0
+                ) {
 
-    const imageWidth =
-        activityImages[0]
-        .getBoundingClientRect()
-        .width;
+                    currentIndex--;
 
+                    updateCarousel();
 
-    const gap =
-        mobile ? 0 : 14;
+                }
 
-
-    const movement =
-        currentActivity *
-        (imageWidth + gap);
+            }
+        );
 
 
-    activityTrack.style.transform =
-        `translateX(-${movement}px)`;
+        /* =========================================
+           INITIAL STATE
+        ========================================= */
 
-
-    /* Active dot */
-
-    activityDotItems.forEach(dot => {
-
-        dot.classList.remove("active");
+        updateCarousel();
 
     });
 
-
-    if (activityDotItems[currentActivity]) {
-
-        activityDotItems[currentActivity]
-            .classList.add("active");
-
-    }
-
-
-    /* Button states */
-
-    activityPrev.disabled =
-        currentActivity === 0;
-
-    activityNext.disabled =
-        currentActivity >= maxIndex;
-
-}
-
-
-/* Previous */
-
-activityPrev.addEventListener("click", () => {
-
-    currentActivity--;
-
-    updateActivityCarousel();
-
 });
-
-
-/* Next */
-
-activityNext.addEventListener("click", () => {
-
-    currentActivity++;
-
-    updateActivityCarousel();
-
-});
-
-
-/* Responsive resize */
-
-window.addEventListener("resize", () => {
-
-    updateActivityCarousel();
-
-});
-
-
-/* Initial */
-
-updateActivityCarousel();
