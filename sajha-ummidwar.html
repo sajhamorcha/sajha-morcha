@@ -2,68 +2,23 @@
 <html lang="hi">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
         content="साझा मोर्चा — साझा उम्मीदवार डेमो फॉर्म">
 
     <title>
-        साझा उम्मीदवार | आवेदन फॉर्म (Application Form)
+        साझा उम्मीदवार | आवेदन फॉर्म |
     </title>
 
         <link rel="stylesheet" href="./assets/form.css">
-<style>
-.form-error {
-    display: none;
-    margin: 0 38px 25px;
-    padding: 15px 18px;
-    background: #fff3f3;
-    border: 1px solid #efc1c1;
-    border-left: 5px solid #c9141e;
-    border-radius: 12px;
-    color: #8a1c1c;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.7;
-    box-shadow: 0 6px 18px rgba(138,28,28,.06);
-}
-.form-error.show {
-    display: block;
-    animation: formErrorIn .25s ease;
-}
-.form-error strong {
-    display: block;
-    margin-bottom: 3px;
-    font-size: 15px;
-}
-.field-error {
-    border-color: #c9141e !important;
-    box-shadow: 0 0 0 3px rgba(201,20,30,.08) !important;
-    background: #fffafa !important;
-}
-.photo-upload.field-error,
-.signature-upload.field-error {
-    border-color: #c9141e !important;
-    box-shadow: 0 0 0 3px rgba(201,20,30,.08) !important;
-}
-@keyframes formErrorIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@media (max-width:800px) {
-    .form-error {
-        margin: 0 18px 22px;
-        font-size: 13px;
-    }
-}
-</style>
 
+
+</head>
+
+
+<body>
 
 </head>
 
@@ -81,18 +36,14 @@
 
 <form
     id="candidateForm"
-    action="https://formsubmit.co/morchasajha@gmail.com"
+    action="https://formsubmit.co/radhakrishna1594@gmail.com"
     method="POST"
     enctype="multipart/form-data">
-
-    <div id="formError"
-         class="form-error"
-         role="alert"
-         aria-live="polite"></div>
     <!-- FormSubmit settings -->
     <input type="hidden" name="_subject" value="नया साझा मोर्चा आवेदन">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" id="candidateId" name="candidate_id">
 
     <!-- FormSubmit requires an absolute HTTPS redirect URL.
          JavaScript below sets this automatically from the live website URL. -->
@@ -109,14 +60,13 @@
            tabindex="-1"
            autocomplete="off"
            style="display:none">
-           
 
 <header class="form-header">
 
     <img src="./pictures/logo.jpeg" alt="साझा मोर्चा लोगो" class="logo">
 
     <h1 class="form-title">साझा उम्मीदवार आवेदन फॉर्म</h1>
-    <p class="form-subtitle">नोट: उम्मीदवार का फोटो एवं हस्ताक्षर अपलोड करना अनिवार्य है।</p>
+    <p class="form-subtitle"></p>
 
     <label class="photo-upload" for="photo">
         <span id="photoText">पासपोर्ट साइज<br>फोटो<br><small>फोटो चुनें</small></span>
@@ -157,10 +107,53 @@
     </select>
 </div>
 
+
+
+<!-- DATE OF BIRTH -->
+<div class="form-row">
+    <label class="form-label" for="dob">
+        4. जन्म तिथि(DOB) <span class="required">*</span> :
+    </label>
+
+    <input
+        class="line-input"
+        id="dob"
+        name="date_of_birth"
+        type="date"
+        required>
+</div>
+
+<!-- AGE -->
+<div class="form-row">
+    <label class="form-label" for="age">
+        5. उम्र (Age) :
+    </label>
+
+    <input
+        class="line-input"
+        id="age"
+        name="age"
+        type="number"
+        readonly>
+</div>
+
+<!-- संदर्भ -->
+<div class="form-row">
+    <label class="form-label" for="reference">
+        6. उम्मीदवार किसके संदर्भ से आया है :
+    </label>
+
+    <input
+        class="line-input"
+        id="reference"
+        name="reference_from"
+        type="text">
+</div>
+
 <!-- 4 -->
 <div class="form-row">
     <label class="form-label" for="mobile">
-        4. मोबाइल नं. (Mobile Number) <span class="required">*</span> :
+        7. मोबाइल नं. (Mobile Number) <span class="required">*</span> :
     </label>
     <input class="line-input" id="mobile" name="mobile" type="tel"
            inputmode="numeric" maxlength="10" pattern="[0-9]{10}"
@@ -171,12 +164,21 @@
 <div class="grid-4">
     <div class="field-inline">
         <label class="form-label" for="state">6. राज्य (State) :</label>
-        <input class="line-input" id="state" name="state">
+        <select class="line-input" id="state" name="state" required>
+            <option value="">राज्य चुनें</option>
+        </select>
     </div>
 
     <div class="field-inline">
         <label class="form-label" for="district">जिला (District) :</label>
-        <input class="line-input" id="district" name="district">
+        <select
+            class="line-input"
+            id="district"
+            name="district"
+            required
+            disabled>
+            <option value="">पहले राज्य चुनें</option>
+        </select>
     </div>
 
     <div class="field-inline">
@@ -193,7 +195,7 @@
 <!-- 7 -->
 <div class="form-row full-row">
     <label class="form-label" for="address">
-        7. पता (Address) <span class="required">*</span> :
+        8. पता (Address) <span class="required">*</span> :
     </label>
     <textarea class="textarea-line" id="address" name="address" required></textarea>
 </div>
@@ -201,7 +203,7 @@
 <!-- 8 -->
 <div class="form-row">
     <label class="form-label" for="community">
-        8. समाज/जाति (Community/Caste) :
+        9. समाज/जाति (Community/Caste) :
     </label>
     <input class="line-input" id="community" name="community">
 </div>
@@ -209,14 +211,14 @@
 <!-- 9 -->
 <div class="form-row">
     <label class="form-label" for="occupation">
-        9. व्यवसाय (Occupation) :
+        10. व्यवसाय (Occupation) :
     </label>
     <input class="line-input" id="occupation" name="occupation">
 </div>
 
 <!-- 10 -->
 <div class="form-row class-row">
-    <span class="form-label">10. वर्ग (Class) :</span>
+    <span class="form-label">11. वर्ग (Class) :</span>
 
     <div class="class-options">
         <label class="class-option">
@@ -248,67 +250,90 @@
 
 <!-- 11 -->
 <div class="form-row">
-    <label class="form-label" for="wardNumber">
-        11. वार्ड नंबर :
-    </label>
-    <input class="line-input" id="wardNumber" name="wardNumber">
-</div>
-
-<!-- 12 -->
-<div class="form-row">
-    <label class="form-label" for="localBody">
-        12. पंचायत/ नगर निकाय का नाम :
-    </label>
-    <input class="line-input" id="localBody" name="localBody">
-</div>
-
-
-<!-- 13 -->
-<div class="form-row">
     <label class="form-label" for="education">
-        13. शैक्षणिक योग्यता (Education Qualification) :
+        12. वार्ड नंबर :
     </label>
     <input class="line-input" id="education" name="education">
 </div>
 
-<!-- 14 -->
+<!-- 11 -->
 <div class="form-row">
-    <label class="form-label" for="aadhaar">
-        14. आधार संख्या (Aadhaar Number) :
+    <label class="form-label" for="education">
+        13. पंचायत/ नगर निकाय का नाम :
     </label>
-    <input class="line-input" id="aadhaar" name="aadhaar"
-           type="text" inputmode="numeric" maxlength="12"
-           pattern="[0-9]{12}" autocomplete="off">
+    <input class="line-input" id="education" name="education">
 </div>
 
-<!-- 15 -->
+
+<!-- 11 -->
+<div class="form-row">
+    <label class="form-label" for="education">
+        14. शैक्षणिक योग्यता (Education Qualification) :
+    </label>
+    <input class="line-input" id="education" name="education">
+</div>
+
+<!-- आधार संख्या -->
+<div class="form-row">
+    <label class="form-label" for="aadhaar">
+        15. आधार संख्या(Aadhar Number) :
+    </label>
+
+    <input
+        class="line-input"
+        id="aadhaar"
+        name="aadhaar"
+        type="text"
+        inputmode="numeric"
+        maxlength="12"
+        pattern="[0-9]{12}"
+        autocomplete="off">
+</div>
+
+<!-- VOTER ID -->
+<div class="form-row">
+    <label class="form-label" for="voterId">
+        16. वोटर आईडी नंबर (Voter ID Number) :
+    </label>
+
+    <input
+        class="line-input"
+        id="voterId"
+        name="voter_id"
+        type="text"
+        maxlength="10"
+        pattern="[A-Za-z0-9]{10}"
+        autocomplete="off">
+</div>
+
+<!-- 13 -->
 <div class="form-row">
     <label class="form-label" for="political">
-        15. पूर्व राजनीतिक संबद्धता (यदि कोई हो) :
+        17. पूर्व राजनीतिक संबद्धता (यदि कोई हो) :
     </label>
     <input class="line-input" id="political" name="political">
 </div>
 
-<!-- 16 -->
+<!-- 14 -->
 <div class="form-row full-row">
     <label class="form-label" for="socialWork">
-        16. सामाजिक कार्य / विभिन्न आंदोलनों में सहभागिता का विवरण :
+        18. सामाजिक कार्य / विभिन्न आंदोलनों में सहभागिता का विवरण :
     </label>
     <textarea class="textarea-line" id="socialWork" name="socialWork"></textarea>
 </div>
 
-<!-- 17 -->
+<!-- 15 -->
 <div class="form-row full-row">
     <label class="form-label" for="criminal">
-        17. आपराधिक रिकॉर्ड और मुकदमों का ब्यौरा :
+        19. आपराधिक रिकॉर्ड और मुकदमों का ब्यौरा :
     </label>
     <textarea class="textarea-line" id="criminal" name="criminal"></textarea>
 </div>
 
-<!-- 18 -->
+<!-- 16 -->
 <div class="form-row full-row">
     <label class="form-label" for="electionDetails">
-        18. यदि आप पंचायत या निकाय चुनाव लड़ना चाहते हैं तो उसकी डिटेल लिखें <br>
+        20. यदि आप पंचायत या निकाय चुनाव लड़ना चाहते हैं तो उसकी डिटेल लिखें <br>
         (पंचायत का नाम, वोटों की संख्या, कौन कौन से समाज है आदि) :
     </label>
     <textarea class="textarea-line" id="electionDetails" name="electionDetails"></textarea>
@@ -319,20 +344,19 @@
     <strong>Note :</strong>
     मैं घोषणा करता/करती हूँ कि मेरे द्वारा दी गई सभी जानकारी सत्य एवं सही हैं।
     मैं वर्तमान में किसी अन्य राजनीतिक दल का सदस्य नहीं हूँ तथा साझा मोर्चा के
-    संविधान, नियमों एवं अनुशासन का पूर्ण निष्ठा एवं ईमानदारी से पालन करूँगा/करूँगी। <br>
-    I declare that all the information provided by me is true and correct. I am not currently a member of any other political party and I shall faithfully and honestly abide by the Constitution, rules, and discipline of Sajha Morcha.
+    संविधान, नियमों एवं अनुशासन का पूर्ण निष्ठा एवं ईमानदारी से पालन करूँगा/करूँगी।
 </div>
 
 
 <div class="bottom-row">
 
     <div class="date-place">
-        दिनांक (Date) :
+        दिनांक :
         <input class="signature-input" id="date" name="application_date" type="text"
                style="width:150px;text-align:left"
                readonly>
         <br>
-        स्थान (Place):
+        स्थान :
         <input class="signature-input" id="place" name="place" type="text"
                style="width:150px;text-align:left">
     </div>
@@ -351,7 +375,7 @@
             required>
 
         <div class="signature-caption">
-            उम्मीदवार के हस्ताक्षर <br> (Signature) <span class="required">*</span>
+            उम्मीदवार के हस्ताक्षर <span class="required">*</span>
         </div>
     </div>
 
@@ -376,6 +400,21 @@
 <script>
 const form = document.getElementById("candidateForm");
 
+function generateCandidateId() {
+    const year = new Date().getFullYear();
+
+    const randomPart = Math.random()
+        .toString(36)
+        .substring(2, 8)
+        .toUpperCase();
+
+    return `SU-${year}-${randomPart}`;
+}
+
+const candidateId = generateCandidateId();
+localStorage.setItem("candidateId", candidateId);
+document.getElementById("candidateId").value = candidateId;
+
 const photoInput = document.getElementById("photo");
 const photoPreview = document.getElementById("photoPreview");
 const photoText = document.getElementById("photoText");
@@ -387,7 +426,909 @@ const signatureText = document.getElementById("signatureText");
 const statusBox = document.getElementById("status");
 const mobile = document.getElementById("mobile");
 const aadhaar = document.getElementById("aadhaar");
+const voterId = document.getElementById("voterId");
+const dob = document.getElementById("dob");
+const age = document.getElementById("age");
+const state = document.getElementById("state");
+const district = document.getElementById("district");
 
+const stateDistricts = {
+
+    "आंध्र प्रदेश": [
+        "अल्लूरी सीताराम राजू",
+        "अनकापल्ली",
+        "अनंतपुरमु",
+        "अन्नमय्या",
+        "बापटला",
+        "चित्तूर",
+        "डॉ. बी. आर. अंबेडकर कोनसीमा",
+        "पूर्वी गोदावरी",
+        "एलुरु",
+        "गुंटूर",
+        "काकीनाडा",
+        "कृष्णा",
+        "कुरनूल",
+        "मार्कापुरम",
+        "नंद्याल",
+        "एनटीआर",
+        "पलनाडु",
+        "पार्वतीपुरम मन्यम",
+        "पोलावरम",
+        "प्रकाशम",
+        "श्री पोट्टी श्रीरामुलु नेल्लोर",
+        "श्री सत्य साई",
+        "श्रीकाकुलम",
+        "तिरुपति",
+        "विशाखापट्टनम",
+        "विजयनगरम",
+        "पश्चिमी गोदावरी",
+        "वाईएसआर कडपा"
+    ],
+
+    "अरुणाचल प्रदेश": [
+        "अंजॉ",
+        "बिचोम",
+        "चांगलांग",
+        "दिबांग घाटी",
+        "पूर्वी कामेंग",
+        "पूर्वी सियांग",
+        "कामले",
+        "केई पन्योर",
+        "क्रा दादी",
+        "कुरुंग कुमे",
+        "लेपा राडा",
+        "लोहित",
+        "लोंगडिंग",
+        "निचली दिबांग घाटी",
+        "निचला सियांग",
+        "निचला सुबनसिरी",
+        "नामसाई",
+        "पक्के-केसांग",
+        "पापुम पारे",
+        "शी योमी",
+        "सियांग",
+        "तवांग",
+        "तिरप",
+        "ऊपरी सियांग",
+        "ऊपरी सुबनसिरी",
+        "पश्चिमी कामेंग",
+        "पश्चिमी सियांग"
+    ],
+
+    "असम": [
+        "बक्सा",
+        "बजाली",
+        "बरपेटा",
+        "बिस्वनाथ",
+        "बोंगाईगांव",
+        "कछार",
+        "चराइदेव",
+        "दरांग",
+        "धेमाजी",
+        "धुबरी",
+        "डिब्रूगढ़",
+        "दिमा हसाओ",
+        "ग्वालपाड़ा",
+        "गोलाघाट",
+        "हैलाकांडी",
+        "होजाई",
+        "जोरहाट",
+        "कामरूप",
+        "कामरूप महानगर",
+        "कार्बी आंगलोंग",
+        "करीमगंज",
+        "कोकराझार",
+        "लखीमपुर",
+        "माजुली",
+        "मोरीगांव",
+        "नगांव",
+        "नलबाड़ी",
+        "शिवसागर",
+        "सोनितपुर",
+        "दक्षिण सालमारा-मनकाचर",
+        "तमुलपुर",
+        "तिनसुकिया",
+        "उदलगुड़ी",
+        "पश्चिमी कार्बी आंगलोंग"
+    ],
+
+    "बिहार": [
+        "अररिया",
+        "अरवल",
+        "औरंगाबाद",
+        "बांका",
+        "बेगूसराय",
+        "भागलपुर",
+        "भोजपुर",
+        "बक्सर",
+        "दरभंगा",
+        "पूर्वी चंपारण",
+        "गया",
+        "गोपालगंज",
+        "जमुई",
+        "जहानाबाद",
+        "कैमूर",
+        "कटिहार",
+        "खगड़िया",
+        "किशनगंज",
+        "लखीसराय",
+        "मधेपुरा",
+        "मधुबनी",
+        "मुंगेर",
+        "मुजफ्फरपुर",
+        "नालंदा",
+        "नवादा",
+        "पटना",
+        "पूर्णिया",
+        "रोहतास",
+        "सहरसा",
+        "समस्तीपुर",
+        "सारण",
+        "शेखपुरा",
+        "शिवहर",
+        "सीतामढ़ी",
+        "सीवान",
+        "सुपौल",
+        "वैशाली",
+        "पश्चिमी चंपारण"
+    ],
+
+    "छत्तीसगढ़": [
+        "बालोद",
+        "बलौदा बाजार",
+        "बलरामपुर-रामानुजगंज",
+        "बस्तर",
+        "बेमेतरा",
+        "बीजापुर",
+        "बिलासपुर",
+        "दंतेवाड़ा",
+        "धमतरी",
+        "दुर्ग",
+        "गरियाबंद",
+        "गौरेला-पेंड्रा-मरवाही",
+        "जांजगीर-चांपा",
+        "जशपुर",
+        "कबीरधाम",
+        "कांकेर",
+        "खैरागढ़-छुईखदान-गंडई",
+        "कोंडागांव",
+        "कोरबा",
+        "कोरिया",
+        "महासमुंद",
+        "मनेंद्रगढ़-चिरमिरी-भरतपुर",
+        "मोहला-मानपुर-अंबागढ़ चौकी",
+        "मुंगेली",
+        "नारायणपुर",
+        "रायगढ़",
+        "रायपुर",
+        "राजनांदगांव",
+        "सक्ती",
+        "सारंगढ़-बिलाईगढ़",
+        "सुकमा",
+        "सूरजपुर",
+        "सरगुजा"
+    ],
+
+    "गोवा": [
+        "उत्तर गोवा",
+        "दक्षिण गोवा"
+    ],
+
+    "गुजरात": [
+        "अहमदाबाद",
+        "अमरेली",
+        "आनंद",
+        "अरावली",
+        "बनासकांठा",
+        "भरूच",
+        "भावनगर",
+        "बोटाद",
+        "छोटा उदयपुर",
+        "दाहोद",
+        "डांग",
+        "देवभूमि द्वारका",
+        "गांधीनगर",
+        "गिर सोमनाथ",
+        "जामनगर",
+        "जूनागढ़",
+        "खेड़ा",
+        "कच्छ",
+        "महिसागर",
+        "मेहसाणा",
+        "मोरबी",
+        "नर्मदा",
+        "नवसारी",
+        "पंचमहल",
+        "पाटन",
+        "पोरबंदर",
+        "राजकोट",
+        "साबरकांठा",
+        "सूरत",
+        "सुरेंद्रनगर",
+        "तापी",
+        "वडोदरा",
+        "वलसाड",
+        "वाव-थराद"
+    ],
+
+    "हरियाणा": [
+        "अंबाला",
+        "भिवानी",
+        "चरखी दादरी",
+        "फरीदाबाद",
+        "फतेहाबाद",
+        "गुरुग्राम",
+        "हांसी",
+        "हिसार",
+        "झज्जर",
+        "जींद",
+        "कैथल",
+        "करनाल",
+        "कुरुक्षेत्र",
+        "महेंद्रगढ़",
+        "नूंह",
+        "पलवल",
+        "पंचकूला",
+        "पानीपत",
+        "रेवाड़ी",
+        "रोहतक",
+        "सिरसा",
+        "सोनीपत",
+        "यमुनानगर"
+    ],
+
+    "हिमाचल प्रदेश": [
+        "बिलासपुर",
+        "चंबा",
+        "हमीरपुर",
+        "कांगड़ा",
+        "किन्नौर",
+        "कुल्लू",
+        "लाहौल और स्पीति",
+        "मंडी",
+        "शिमला",
+        "सिरमौर",
+        "सोलन",
+        "ऊना"
+    ],
+
+    "झारखंड": [
+        "बोकारो",
+        "चतरा",
+        "देवघर",
+        "धनबाद",
+        "दुमका",
+        "पूर्वी सिंहभूम",
+        "गढ़वा",
+        "गिरिडीह",
+        "गोड्डा",
+        "गुमला",
+        "हजारीबाग",
+        "जामताड़ा",
+        "खूंटी",
+        "कोडरमा",
+        "लातेहार",
+        "लोहरदगा",
+        "पाकुड़",
+        "पलामू",
+        "रामगढ़",
+        "रांची",
+        "साहिबगंज",
+        "सरायकेला-खरसावां",
+        "सिमडेगा",
+        "पश्चिमी सिंहभूम"
+    ],
+
+    "कर्नाटक": [
+        "बागलकोट",
+        "बल्लारी",
+        "बेलगावी",
+        "बेंगलुरु ग्रामीण",
+        "बेंगलुरु शहरी",
+        "बीदर",
+        "चामराजनगर",
+        "चिक्कबल्लापुर",
+        "चिक्कमगलुरु",
+        "चित्रदुर्ग",
+        "दक्षिण कन्नड़",
+        "दावणगेरे",
+        "धारवाड़",
+        "गडग",
+        "हासन",
+        "हावेरी",
+        "कल्याण कर्नाटक",
+        "कोडागु",
+        "कोलार",
+        "कोप्पल",
+        "मांड्या",
+        "मैसूरु",
+        "रायचूर",
+        "रामनगर",
+        "शिवमोग्गा",
+        "तुमकुरु",
+        "उडुपी",
+        "उत्तर कन्नड़",
+        "विजयपुरा",
+        "विजयनगर",
+        "यादगीर"
+    ],
+
+    "केरल": [
+        "अलप्पुझा",
+        "एर्नाकुलम",
+        "इडुक्की",
+        "कन्नूर",
+        "कासरगोड",
+        "कोल्लम",
+        "कोट्टायम",
+        "कोझिकोड",
+        "मलप्पुरम",
+        "पालक्काड",
+        "पथनमथिट्टा",
+        "तिरुवनंतपुरम",
+        "त्रिशूर",
+        "वायनाड"
+    ],
+
+    "मध्य प्रदेश": [
+        "आगर-मालवा",
+        "अलीराजपुर",
+        "अनूपपुर",
+        "अशोकनगर",
+        "बालाघाट",
+        "बड़वानी",
+        "बैतूल",
+        "भिंड",
+        "भोपाल",
+        "बुरहानपुर",
+        "छतरपुर",
+        "छिंदवाड़ा",
+        "दमोह",
+        "दतिया",
+        "देवास",
+        "धार",
+        "डिंडोरी",
+        "गुना",
+        "ग्वालियर",
+        "हरदा",
+        "इंदौर",
+        "जबलपुर",
+        "झाबुआ",
+        "कटनी",
+        "खंडवा",
+        "खरगोन",
+        "मैहर",
+        "मंडला",
+        "मंदसौर",
+        "मऊगंज",
+        "मुरैना",
+        "नर्मदापुरम",
+        "नरसिंहपुर",
+        "नीमच",
+        "निवाड़ी",
+        "पन्ना",
+        "पांढुर्णा",
+        "रायसेन",
+        "राजगढ़",
+        "रतलाम",
+        "रीवा",
+        "सागर",
+        "सतना",
+        "सीहोर",
+        "सिवनी",
+        "शहडोल",
+        "शाजापुर",
+        "श्योपुर",
+        "शिवपुरी",
+        "सीधी",
+        "सिंगरौली",
+        "टीकमगढ़",
+        "उज्जैन",
+        "उमरिया",
+        "विदिशा"
+    ],
+
+    "महाराष्ट्र": [
+        "अहिल्यानगर",
+        "अकोला",
+        "अमरावती",
+        "बीड",
+        "भंडारा",
+        "बुलढाणा",
+        "चंद्रपुर",
+        "छत्रपति संभाजीनगर",
+        "धाराशिव",
+        "धुले",
+        "गडचिरोली",
+        "गोंदिया",
+        "हिंगोली",
+        "जलगांव",
+        "जालना",
+        "कोल्हापुर",
+        "लातूर",
+        "मुंबई शहर",
+        "मुंबई उपनगर",
+        "नागपुर",
+        "नांदेड",
+        "नंदुरबार",
+        "नाशिक",
+        "पालघर",
+        "परभणी",
+        "पुणे",
+        "रायगढ़",
+        "रत्नागिरी",
+        "सांगली",
+        "सातारा",
+        "सिंधुदुर्ग",
+        "सोलापुर",
+        "ठाणे",
+        "वर्धा",
+        "वाशिम",
+        "यवतमाल"
+    ],
+
+    "मणिपुर": [
+        "बिष्णुपुर",
+        "चंदेल",
+        "चुराचांदपुर",
+        "इंफाल पूर्व",
+        "इंफाल पश्चिम",
+        "जिरीबाम",
+        "काकचिंग",
+        "कामजोंग",
+        "कांगपोकपी",
+        "नौने",
+        "फेरज़ावल",
+        "सेनापति",
+        "तामेंगलांग",
+        "टेंगनौपाल",
+        "थौबल",
+        "उखरुल"
+    ],
+
+    "मेघालय": [
+        "पूर्वी गारो हिल्स",
+        "पूर्वी जयंतिया हिल्स",
+        "पूर्वी खासी हिल्स",
+        "पूर्वी पश्चिमी खासी हिल्स",
+        "उत्तर गारो हिल्स",
+        "री-भोई",
+        "दक्षिण गारो हिल्स",
+        "दक्षिण पश्चिमी गारो हिल्स",
+        "दक्षिण पश्चिमी खासी हिल्स",
+        "पश्चिमी गारो हिल्स",
+        "पश्चिमी जयंतिया हिल्स",
+        "पश्चिमी खासी हिल्स"
+    ],
+
+    "मिजोरम": [
+        "आइजोल",
+        "चम्फाई",
+        "हनाहथियाल",
+        "खावजॉल",
+        "कोलासिब",
+        "लॉन्गतलाई",
+        "लुंगलेई",
+        "मामित",
+        "सैहा",
+        "सैतुअल",
+        "सेरछिप"
+    ],
+
+    "नागालैंड": [
+        "चुमौकेदिमा",
+        "दीमापुर",
+        "किफिरे",
+        "कोहिमा",
+        "लोंगलेंग",
+        "मोकोकचुंग",
+        "मोन",
+        "मेलुरी",
+        "निउलैंड",
+        "नोकलाक",
+        "पेरेन",
+        "फेक",
+        "शमाटोर",
+        "तुएनसांग",
+        "वोखा",
+        "जुन्हेबोटो"
+    ],
+
+    "ओडिशा": [
+        "अंगुल",
+        "बलांगीर",
+        "बालासोर",
+        "बरगढ़",
+        "भद्रक",
+        "बौध",
+        "कटक",
+        "देवगढ़",
+        "ढेंकानाल",
+        "गजपति",
+        "गंजाम",
+        "जगतसिंहपुर",
+        "जाजपुर",
+        "झारसुगुड़ा",
+        "कालाहांडी",
+        "कंधमाल",
+        "केंद्रापड़ा",
+        "केंदुझर",
+        "खोरधा",
+        "कोरापुट",
+        "मलकानगिरी",
+        "मयूरभंज",
+        "नबरंगपुर",
+        "नयागढ़",
+        "नुआपाड़ा",
+        "पुरी",
+        "रायगढ़ा",
+        "संबलपुर",
+        "सुबर्णपुर",
+        "सुंदरगढ़"
+    ],
+
+    "पंजाब": [
+        "अमृतसर",
+        "बरनाला",
+        "बठिंडा",
+        "फरीदकोट",
+        "फतेहगढ़ साहिब",
+        "फाजिल्का",
+        "फिरोजपुर",
+        "गुरदासपुर",
+        "होशियारपुर",
+        "जालंधर",
+        "कपूरथला",
+        "लुधियाना",
+        "मलेरकोटला",
+        "मानसा",
+        "मोगा",
+        "पठानकोट",
+        "पटियाला",
+        "रूपनगर",
+        "साहिबजादा अजीत सिंह नगर",
+        "संगरूर",
+        "शहीद भगत सिंह नगर",
+        "श्री मुक्तसर साहिब",
+        "तरन तारन"
+    ],
+
+    "राजस्थान": [
+        "अजमेर",
+        "अलवर",
+        "बालोतरा",
+        "बांसवाड़ा",
+        "बारां",
+        "बाड़मेर",
+        "ब्यावर",
+        "भरतपुर",
+        "भीलवाड़ा",
+        "बीकानेर",
+        "बूंदी",
+        "चित्तौड़गढ़",
+        "चूरू",
+        "दौसा",
+        "डीग",
+        "धौलपुर",
+        "डीडवाना-कुचामन",
+        "डूंगरपुर",
+        "श्रीगंगानगर",
+        "हनुमानगढ़",
+        "जयपुर",
+        "जैसलमेर",
+        "जालौर",
+        "झालावाड़",
+        "झुंझुनूं",
+        "जोधपुर",
+        "करौली",
+        "खैरथल-तिजारा",
+        "कोटा",
+        "कोटपूतली-बहरोड़",
+        "नागौर",
+        "पाली",
+        "फलोदी",
+        "प्रतापगढ़",
+        "राजसमंद",
+        "सलूंबर",
+        "सवाई माधोपुर",
+        "सीकर",
+        "सिरोही",
+        "टोंक",
+        "उदयपुर"
+    ],
+
+    "सिक्किम": [
+        "गंगटोक",
+        "ग्यालशिंग",
+        "मंगन",
+        "नामची",
+        "पाक्योंग",
+        "सोरेन्ग"
+    ],
+
+    "तमिलनाडु": [
+        "अरियालुर",
+        "चेंगलपट्टु",
+        "चेन्नई",
+        "कोयंबटूर",
+        "कडलूर",
+        "धर्मपुरी",
+        "डिंडीगुल",
+        "इरोड",
+        "कल्लाकुरिची",
+        "कांचीपुरम",
+        "करूर",
+        "कृष्णागिरि",
+        "मदुरै",
+        "मयिलादुथुरई",
+        "नागपट्टिनम",
+        "नमक्कल",
+        "नीलगिरि",
+        "पेरम्बलूर",
+        "पुदुक्कोट्टई",
+        "रामनाथपुरम",
+        "रानीपेट",
+        "सलेम",
+        "शिवगंगा",
+        "तेनकासी",
+        "तंजावुर",
+        "थेनी",
+        "तूतीकोरिन",
+        "तिरुचिरापल्ली",
+        "तिरुनेलवेली",
+        "तिरुपत्तूर",
+        "तिरुप्पुर",
+        "तिरुवल्लूर",
+        "तिरुवन्नामलाई",
+        "तिरुवारूर",
+        "वेल्लोर",
+        "विलुप्पुरम",
+        "विरुधुनगर"
+    ],
+
+    "तेलंगाना": [
+        "आदिलाबाद",
+        "भद्राद्रि कोठागुडेम",
+        "हनमकोंडा",
+        "हैदराबाद",
+        "जगतियाल",
+        "जंगांव",
+        "जयशंकर भूपालपल्ली",
+        "जोगुलाम्बा गडवाल",
+        "कामारेड्डी",
+        "करीमनगर",
+        "खम्मम",
+        "कोमाराम भीम आसिफाबाद",
+        "महबूबाबाद",
+        "महबूबनगर",
+        "मंचेरियल",
+        "मेडक",
+        "मेडचल-मलकाजगिरी",
+        "मुलुगु",
+        "नागarkurnool",
+        "नलगोंडा",
+        "नारायणपेट",
+        "निर्मल",
+        "निजामाबाद",
+        "पेद्दापल्ली",
+        "राजन्ना सिरसिला",
+        "रंगारेड्डी",
+        "संगारेड्डी",
+        "सिद्दीपेट",
+        "सूर्यापेट",
+        "विकाराबाद",
+        "वानापर्थी",
+        "वारंगल",
+        "यादाद्रि भुवनगिरि"
+    ],
+
+    "त्रिपुरा": [
+        "धलाई",
+        "गोमती",
+        "खोवाई",
+        "उत्तर त्रिपुरा",
+        "सिपाहीजाला",
+        "दक्षिण त्रिपुरा",
+        "उनाकोटी",
+        "पश्चिम त्रिपुरा"
+    ],
+
+    "उत्तर प्रदेश": [
+        "आगरा",
+        "अलीगढ़",
+        "अंबेडकर नगर",
+        "अमेठी",
+        "अमरोहा",
+        "औरैया",
+        "अयोध्या",
+        "आजमगढ़",
+        "बागपत",
+        "बहराइच",
+        "बलिया",
+        "बलरामपुर",
+        "बांदा",
+        "बाराबंकी",
+        "बरेली",
+        "बस्ती",
+        "भदोही",
+        "बिजनौर",
+        "बदायूं",
+        "बुलंदशहर",
+        "चंदौली",
+        "चित्रकूट",
+        "देवरिया",
+        "एटा",
+        "इटावा",
+        "फर्रुखाबाद",
+        "फतेहपुर",
+        "फिरोजाबाद",
+        "गौतम बुद्ध नगर",
+        "गाजियाबाद",
+        "गाजीपुर",
+        "गोंडा",
+        "गोरखपुर",
+        "हमीरपुर",
+        "हापुड़",
+        "हरदोई",
+        "हाथरस",
+        "जालौन",
+        "जौनपुर",
+        "झांसी",
+        "कन्नौज",
+        "कानपुर देहात",
+        "कानपुर नगर",
+        "कासगंज",
+        "कौशांबी",
+        "कुशीनगर",
+        "लखीमपुर खीरी",
+        "ललितपुर",
+        "लखनऊ",
+        "महराजगंज",
+        "महोबा",
+        "मैनपुरी",
+        "मथुरा",
+        "मऊ",
+        "मेरठ",
+        "मिर्जापुर",
+        "मुरादाबाद",
+        "मुजफ्फरनगर",
+        "पीलीभीत",
+        "प्रतापगढ़",
+        "प्रयागराज",
+        "रायबरेली",
+        "रामपुर",
+        "सहारनपुर",
+        "संभल",
+        "संत कबीर नगर",
+        "शाहजहांपुर",
+        "शामली",
+        "श्रावस्ती",
+        "सिद्धार्थनगर",
+        "सीतापुर",
+        "सोनभद्र",
+        "सुल्तानपुर",
+        "उन्नाव",
+        "वाराणसी"
+    ],
+
+    "उत्तराखंड": [
+        "अल्मोड़ा",
+        "बागेश्वर",
+        "चमोली",
+        "चंपावत",
+        "देहरादून",
+        "हरिद्वार",
+        "नैनीताल",
+        "पौड़ी गढ़वाल",
+        "पिथौरागढ़",
+        "रुद्रप्रयाग",
+        "टिहरी गढ़वाल",
+        "उधम सिंह नगर",
+        "उत्तरकाशी"
+    ],
+
+    "पश्चिम बंगाल": [
+        "अलीपुरद्वार",
+        "बांकुड़ा",
+        "बीरभूम",
+        "कूच बिहार",
+        "दक्षिण दिनाजपुर",
+        "दार्जिलिंग",
+        "हुगली",
+        "हावड़ा",
+        "जलपाईगुड़ी",
+        "झाड़ग्राम",
+        "कालिम्पोंग",
+        "कोलकाता",
+        "मालदा",
+        "मुर्शिदाबाद",
+        "नदिया",
+        "उत्तर 24 परगना",
+        "पश्चिम बर्धमान",
+        "पश्चिम मेदिनीपुर",
+        "पूर्व बर्धमान",
+        "पूर्व मेदिनीपुर",
+        "पुरुलिया",
+        "दक्षिण 24 परगना",
+        "उत्तर दिनाजपुर"
+    ],
+
+
+    /* =========================
+       केंद्र शासित प्रदेश
+       ========================= */
+
+    "अंडमान और निकोबार द्वीपसमूह": [
+        "उत्तर और मध्य अंडमान",
+        "दक्षिण अंडमान",
+        "निकोबार"
+    ],
+
+    "चंडीगढ़": [
+        "चंडीगढ़"
+    ],
+
+    "दादरा और नगर हवेली और दमन और दीव": [
+        "दादरा और नगर हवेली",
+        "दमन",
+        "दीव"
+    ],
+
+    "दिल्ली": [
+        "उत्तर दिल्ली",
+        "उत्तर-पूर्वी दिल्ली",
+        "पश्चिमी दिल्ली",
+        "उत्तर-पश्चिमी दिल्ली",
+        "पूर्वी दिल्ली",
+        "दक्षिणी दिल्ली",
+        "दक्षिण-पश्चिमी दिल्ली",
+        "दक्षिण-पूर्वी दिल्ली",
+        "नई दिल्ली",
+        "मध्य दिल्ली",
+        "मध्य उत्तर दिल्ली",
+        "बाहरी उत्तर दिल्ली",
+        "पुरानी दिल्ली"
+    ],
+
+    "जम्मू और कश्मीर": [
+        "अनंतनाग",
+        "बांदीपोरा",
+        "बारामूला",
+        "बडगाम",
+        "डोडा",
+        "गांदरबल",
+        "जम्मू",
+        "कठुआ",
+        "किश्तवाड़",
+        "कुलगाम",
+        "कुपवाड़ा",
+        "पुंछ",
+        "पुलवामा",
+        "राजौरी",
+        "रामबन",
+        "रियासी",
+        "सांबा",
+        "शोपियां",
+        "श्रीनगर",
+        "उधमपुर"
+    ],
+
+    "लद्दाख": [
+        "कारगिल",
+        "लेह"
+    ],
+
+    "लक्षद्वीप": [
+        "लक्षद्वीप"
+    ],
+
+    "पुडुचेरी": [
+        "कराईकल",
+        "माहे",
+        "पुडुचेरी",
+        "यानम"
+    ]
+};
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
 const allowedImageTypes = [
     "image/jpeg",
@@ -420,12 +1361,75 @@ function validateImageFile(file, fieldName) {
 document.getElementById("date").value =
     new Date().toLocaleDateString("hi-IN");
 
+Object.keys(stateDistricts).forEach(function (stateName) {
+    const option = document.createElement("option");
+    option.value = stateName;
+    option.textContent = stateName;
+    state.appendChild(option);
+});
+
+state.addEventListener("change", function () {
+    district.innerHTML = "";
+
+    if (!this.value) {
+        district.disabled = true;
+        district.innerHTML = '<option value="">पहले राज्य चुनें</option>';
+        return;
+    }
+
+    district.disabled = false;
+    district.innerHTML = '<option value="">जिला चुनें</option>';
+
+    stateDistricts[this.value].forEach(function (districtName) {
+        const option = document.createElement("option");
+        option.value = districtName;
+        option.textContent = districtName;
+        district.appendChild(option);
+    });
+});
+
 mobile.addEventListener("input", function(){
     this.value = this.value.replace(/\D/g,"").slice(0,10);
 });
 
 aadhaar.addEventListener("input", function(){
     this.value = this.value.replace(/\D/g,"").slice(0,12);
+});
+
+voterId.addEventListener("input", function () {
+    this.value = this.value
+        .replace(/[^A-Za-z0-9]/g, "")
+        .slice(0, 10)
+        .toUpperCase();
+});
+
+dob.addEventListener("change", function () {
+
+    if (!this.value) {
+        age.value = "";
+        return;
+    }
+
+    const birthDate = new Date(this.value);
+    const today = new Date();
+
+    let calculatedAge =
+        today.getFullYear() - birthDate.getFullYear();
+
+    const monthDifference =
+        today.getMonth() - birthDate.getMonth();
+
+    if (
+        monthDifference < 0 ||
+        (
+            monthDifference === 0 &&
+            today.getDate() < birthDate.getDate()
+        )
+    ) {
+        calculatedAge--;
+    }
+
+    age.value = calculatedAge;
 });
 
 photoInput.addEventListener("change", function(){
@@ -487,185 +1491,51 @@ signatureInput.addEventListener("change", function() {
     reader.readAsDataURL(file);
 });
 
-/* =========================================================
-   FORM VALIDATION + SUBMISSION
-   ========================================================= */
-
-const formError = document.getElementById("formError");
-
-function showFormError(message, element = null) {
-
-    formError.innerHTML =
-        "<strong>⚠ कृपया आवश्यक जानकारी पूरी करें</strong>" +
-        message;
-
-    formError.classList.add("show");
-
-    if (element) {
-
-        element.classList.add("field-error");
-
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-        setTimeout(function() {
-
-            if (
-                element.tagName === "INPUT" ||
-                element.tagName === "SELECT" ||
-                element.tagName === "TEXTAREA"
-            ) {
-                element.focus();
-            }
-
-        }, 350);
-    }
-}
-
-function clearFormError() {
-
-    formError.classList.remove("show");
-    formError.innerHTML = "";
-
-    document
-        .querySelectorAll(".field-error")
-        .forEach(function(element) {
-            element.classList.remove("field-error");
-        });
-}
-
-
-/* Clear the message as soon as the candidate starts correcting a field */
-
-form.querySelectorAll("input, select, textarea").forEach(function(field) {
-
-    field.addEventListener("input", clearFormError);
-    field.addEventListener("change", clearFormError);
-
-});
-
-
 form.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    clearFormError();
-
     const submitButton =
         form.querySelector('button[type="submit"]');
 
-
-    /* 1. PHOTO */
-
     if (!photoInput.files.length) {
-
-        showFormError(
-            "सबसे पहले उम्मीदवार का पासपोर्ट साइज फोटो अपलोड करें।",
-            document.querySelector(".photo-upload")
-        );
-
+        alert("कृपया उम्मीदवार का फोटो अपलोड करें।");
+        photoInput.closest(".photo-upload").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
         return;
     }
-
-
-    /* 2. SIGNATURE */
 
     if (!signatureInput.files.length) {
-
-        showFormError(
-            "उम्मीदवार के हस्ताक्षर की फोटो अपलोड करना अनिवार्य है।",
-            document.querySelector(".signature-upload")
-        );
-
+        alert("कृपया उम्मीदवार के हस्ताक्षर की image अपलोड करें।");
+        signatureInput.closest(".signature-upload").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
         return;
     }
 
-
-    /* 3. ALL REQUIRED FIELDS + PATTERN VALIDATION */
-
-    const invalidField =
-        form.querySelector(":invalid");
-
-    if (invalidField) {
-
-        let message =
-            "जिन fields के आगे (*) लगा है, उन्हें भरना अनिवार्य है।";
-
-
-        if (invalidField.id === "fullName") {
-            message = "कृपया अपना पूरा नाम दर्ज करें।";
-        }
-
-        else if (invalidField.id === "parentName") {
-            message = "कृपया पिता/पति का नाम दर्ज करें।";
-        }
-
-        else if (invalidField.id === "gender") {
-            message = "कृपया अपना लिंग चुनें।";
-        }
-
-        else if (invalidField.id === "mobile") {
-            message = "कृपया 10 अंकों का सही मोबाइल नंबर दर्ज करें।";
-        }
-
-        else if (invalidField.id === "address") {
-            message = "कृपया अपना पूरा पता दर्ज करें।";
-        }
-
-        else if (invalidField.id === "wardNumber") {
-            message = "कृपया अपना वार्ड नंबर दर्ज करें।";
-        }
-
-        else if (invalidField.id === "localBody") {
-            message = "कृपया पंचायत / नगर निकाय का नाम दर्ज करें।";
-        }
-
-
-        showFormError(
-            message,
-            invalidField
-        );
-
+    if (!form.checkValidity()) {
+        form.reportValidity();
         return;
     }
-
-
-    /* 4. THANK-YOU PAGE */
 
     const thankYouUrl =
-        new URL(
-            "thankyou.html",
-            window.location.href
-        ).href;
+        new URL("thankyou.html", window.location.href).href;
 
     document.getElementById("formSubmitNext").value =
         thankYouUrl;
 
-
-    /* 5. SUBMIT */
-
     if (submitButton) {
-
         submitButton.disabled = true;
-
         submitButton.textContent =
             "आवेदन भेजा जा रहा है...";
-
         submitButton.style.opacity = "0.7";
-
         submitButton.style.cursor = "wait";
     }
 
-
-    /*
-       Native submission preserves multipart/form-data,
-       so the photograph and signature are sent to FormSubmit.
-    */
-
     HTMLFormElement.prototype.submit.call(form);
-
 });
 
 </script>
