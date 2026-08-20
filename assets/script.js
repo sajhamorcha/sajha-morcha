@@ -594,6 +594,71 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
+
+
+       /* =========================================
+           video 2 script
+        ========================================= */
+
+
+const mainVideo02 =
+    document.getElementById("mainVideo02");
+
+const mainVideoSource02 =
+    document.getElementById("mainVideoSource02");
+
+const videoCards02 =
+    document.querySelectorAll(".video-card-02");
+
+
+videoCards02.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const file =
+            card.dataset.video;
+
+        if (!file) return;
+
+
+        /* Stop current video */
+
+        mainVideo02.pause();
+
+
+        /* Change source */
+
+        mainVideoSource02.src =
+            file;
+
+
+        /* Reload video */
+
+        mainVideo02.load();
+
+
+        /* Play selected video */
+
+        mainVideo02.play().catch(() => {});
+
+
+        /* Remove active */
+
+        videoCards02.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        /* Set active */
+
+        card.classList.add("active");
+
+    });
+
+});
+
         /* =========================================
            INITIAL STATE
         ========================================= */
@@ -603,3 +668,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+/* =====================================================
+   THIRD VIDEO SECTION
+===================================================== */
+
+const mainVideo03 =
+    document.getElementById("mainVideo03");
+
+const mainVideoSource03 =
+    document.getElementById("mainVideoSource03");
+
+const videoCards03 =
+    document.querySelectorAll(".video-card-03");
+
+
+if (
+    mainVideo03 &&
+    mainVideoSource03 &&
+    videoCards03.length
+) {
+
+    videoCards03.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const file =
+                card.dataset.video;
+
+            if (!file) return;
+
+
+            /* Stop current video */
+
+            mainVideo03.pause();
+
+
+            /* Change video */
+
+            mainVideoSource03.src =
+                file;
+
+
+            /* Reload */
+
+            mainVideo03.load();
+
+
+            /* Play selected video */
+
+            mainVideo03.play().catch(() => {});
+
+
+            /* Active card */
+
+            videoCards03.forEach(item => {
+
+                item.classList.remove("active");
+
+            });
+
+
+            card.classList.add("active");
+
+        });
+
+    });
+
+}

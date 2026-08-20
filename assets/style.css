@@ -1958,3 +1958,499 @@ footer p{margin-top:10px;color:#bbaaa1;font-size:14px}
     transform: translateY(-3px);
 }
 
+
+/* =====================================================
+   SECOND VIDEO SECTION — HORIZONTAL VIDEO CARDS
+===================================================== */
+
+.video-section-02 .video-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+/* MAIN VIDEO */
+
+.video-section-02 .main-video {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #000;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, .18);
+}
+
+.video-section-02 .main-video video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    object-fit: contain;
+}
+
+
+/* ==========================================
+   VIDEO CARDS — ONE ROW
+========================================== */
+
+.video-section-02 .video-list {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    gap: 14px;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 12px;
+
+    scrollbar-width: thin;
+}
+
+
+/* CARD */
+
+.video-section-02 .video-card-02 {
+    position: relative;
+
+    flex: 0 0 210px;
+
+    min-height: 85px;
+
+    padding: 16px 18px;
+
+    border: 1px solid rgba(23, 107, 80, .12);
+
+    border-radius: 16px;
+
+    background: #fff;
+
+    color: #17231e;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+
+/* CARD HOVER */
+
+.video-section-02 .video-card-02:hover {
+
+    transform: translateY(-3px);
+
+    border-color: rgba(201, 20, 30, .28);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .10);
+}
+
+
+/* CARD TITLE */
+
+.video-section-02 .video-card-02 strong {
+
+    color: #176b50;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+/* CARD TEXT */
+
+.video-section-02 .video-card-02 span {
+
+    color: #718079;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ACTIVE CARD */
+
+.video-section-02 .video-card-02.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #176b50,
+            #0f503c
+        );
+
+    border-color: #176b50;
+
+    box-shadow:
+        0 12px 30px rgba(23, 107, 80, .20);
+}
+
+
+.video-section-02 .video-card-02.active strong {
+
+    color: #fff;
+}
+
+
+.video-section-02 .video-card-02.active span {
+
+    color: rgba(255,255,255,.80);
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.video-section-02 .video-list::-webkit-scrollbar {
+
+    height: 6px;
+}
+
+
+.video-section-02 .video-list::-webkit-scrollbar-track {
+
+    background: #eef2ef;
+
+    border-radius: 20px;
+}
+
+
+.video-section-02 .video-list::-webkit-scrollbar-thumb {
+
+    background: #176b50;
+
+    border-radius: 20px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .video-section-02 .main-video {
+
+        border-radius: 16px;
+    }
+
+
+    .video-section-02 .video-card-02 {
+
+        flex: 0 0 180px;
+
+        min-height: 75px;
+
+        padding: 13px 15px;
+    }
+
+
+    .video-section-02 .video-card-02 strong {
+
+        font-size: 14px;
+    }
+
+
+    .video-section-02 .video-card-02 span {
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* =====================================================
+   THIRD VIDEO SECTION
+   HORIZONTAL VIDEO CARDS
+===================================================== */
+
+.video-section-03 {
+    position: relative;
+}
+
+
+/* MAIN LAYOUT */
+
+.video-section-03 .video-layout {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    width: 100%;
+}
+
+
+/* MAIN VIDEO */
+
+.video-section-03 .main-video {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #000;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, .18);
+}
+
+
+.video-section-03 .main-video video {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   VIDEO LIST — HORIZONTAL
+===================================================== */
+
+.video-section-03 .video-list-03 {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    gap: 14px;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 12px;
+
+    scrollbar-width: thin;
+}
+
+
+/* =====================================================
+   VIDEO CARD
+===================================================== */
+
+.video-section-03 .video-card-03 {
+
+    position: relative;
+
+    flex: 0 0 210px;
+
+    min-height: 85px;
+
+    padding: 16px 18px;
+
+    border: 1px solid rgba(23, 107, 80, .12);
+
+    border-radius: 16px;
+
+    background: #fff;
+
+    color: #17231e;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+
+/* HOVER */
+
+.video-section-03 .video-card-03:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(201, 20, 30, .28);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .10);
+}
+
+
+/* TITLE */
+
+.video-section-03 .video-card-03 strong {
+
+    color: #176b50;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+/* SUBTEXT */
+
+.video-section-03 .video-card-03 span {
+
+    color: #718079;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   ACTIVE CARD
+===================================================== */
+
+.video-section-03 .video-card-03.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #176b50,
+            #0f503c
+        );
+
+    border-color: #176b50;
+
+    box-shadow:
+        0 12px 30px rgba(23, 107, 80, .20);
+}
+
+
+.video-section-03 .video-card-03.active strong {
+
+    color: #fff;
+}
+
+
+.video-section-03 .video-card-03.active span {
+
+    color: rgba(255,255,255,.80);
+}
+
+
+/* LEFT ACTIVE INDICATOR */
+
+.video-section-03 .video-card-03.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 14px;
+
+    bottom: 14px;
+
+    width: 4px;
+
+    border-radius:
+        0 5px 5px 0;
+
+    background: #d5a53b;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+.video-section-03 .video-list-03::-webkit-scrollbar {
+
+    height: 6px;
+}
+
+
+.video-section-03 .video-list-03::-webkit-scrollbar-track {
+
+    background: #eef2ef;
+
+    border-radius: 20px;
+}
+
+
+.video-section-03 .video-list-03::-webkit-scrollbar-thumb {
+
+    background: #176b50;
+
+    border-radius: 20px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .video-section-03 .main-video {
+
+        border-radius: 16px;
+    }
+
+
+    .video-section-03 .video-card-03 {
+
+        flex: 0 0 180px;
+
+        min-height: 75px;
+
+        padding: 13px 15px;
+    }
+
+
+    .video-section-03 .video-card-03 strong {
+
+        font-size: 14px;
+    }
+
+
+    .video-section-03 .video-card-03 span {
+
+        font-size: 11px;
+    }
+
+}
