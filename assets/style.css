@@ -1962,300 +1962,105 @@ footer p{margin-top:10px;color:#bbaaa1;font-size:14px}
 /* =====================================================
    SECOND VIDEO SECTION — HORIZONTAL VIDEO CARDS
 ===================================================== */
+/* =====================================================
+   SAJHA MORCHA - UNIQUE YOUTUBE VIDEO SYSTEM
+   Prefix: smv-
+===================================================== */
 
-.video-section-02 .video-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-
-/* MAIN VIDEO */
-
-.video-section-02 .main-video {
+.smv-section {
     width: 100%;
+    padding: 80px 0;
+    background: #102f4a;
+    color: #ffffff;
     overflow: hidden;
-    border-radius: 22px;
-    background: #000;
-    box-shadow: 0 20px 55px rgba(0, 0, 0, .18);
-}
-
-.video-section-02 .main-video video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    object-fit: contain;
 }
 
 
-/* ==========================================
-   VIDEO CARDS — ONE ROW
-========================================== */
-
-.video-section-02 .video-list {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: row;
-
-    flex-wrap: nowrap;
-
-    gap: 14px;
-
-    overflow-x: auto;
-
-    padding: 5px 3px 12px;
-
-    scrollbar-width: thin;
+.smv-heading {
+    max-width: 800px;
+    margin-bottom: 40px;
 }
 
 
-/* CARD */
-
-.video-section-02 .video-card-02 {
-    position: relative;
-
-    flex: 0 0 210px;
-
-    min-height: 85px;
-
-    padding: 16px 18px;
-
-    border: 1px solid rgba(23, 107, 80, .12);
-
-    border-radius: 16px;
-
-    background: #fff;
-
-    color: #17231e;
-
-    text-align: left;
-
-    cursor: pointer;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 5px;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-}
-
-
-/* CARD HOVER */
-
-.video-section-02 .video-card-02:hover {
-
-    transform: translateY(-3px);
-
-    border-color: rgba(201, 20, 30, .28);
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, .10);
-}
-
-
-/* CARD TITLE */
-
-.video-section-02 .video-card-02 strong {
-
-    color: #176b50;
-
+.smv-heading > span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #f2c94c;
     font-size: 15px;
-
-    font-weight: 800;
+    font-weight: 700;
 }
 
 
-/* CARD TEXT */
-
-.video-section-02 .video-card-02 span {
-
-    color: #718079;
-
-    font-size: 12px;
-
-    line-height: 1.5;
+.smv-heading h2 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.2;
 }
 
 
-/* ACTIVE CARD */
-
-.video-section-02 .video-card-02.active {
-
-    background:
-        linear-gradient(
-            135deg,
-            #176b50,
-            #0f503c
-        );
-
-    border-color: #176b50;
-
-    box-shadow:
-        0 12px 30px rgba(23, 107, 80, .20);
-}
-
-
-.video-section-02 .video-card-02.active strong {
-
-    color: #fff;
-}
-
-
-.video-section-02 .video-card-02.active span {
-
-    color: rgba(255,255,255,.80);
-}
-
-
-/* ==========================================
-   SCROLLBAR
-========================================== */
-
-.video-section-02 .video-list::-webkit-scrollbar {
-
-    height: 6px;
-}
-
-
-.video-section-02 .video-list::-webkit-scrollbar-track {
-
-    background: #eef2ef;
-
-    border-radius: 20px;
-}
-
-
-.video-section-02 .video-list::-webkit-scrollbar-thumb {
-
-    background: #176b50;
-
-    border-radius: 20px;
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 600px) {
-
-    .video-section-02 .main-video {
-
-        border-radius: 16px;
-    }
-
-
-    .video-section-02 .video-card-02 {
-
-        flex: 0 0 180px;
-
-        min-height: 75px;
-
-        padding: 13px 15px;
-    }
-
-
-    .video-section-02 .video-card-02 strong {
-
-        font-size: 14px;
-    }
-
-
-    .video-section-02 .video-card-02 span {
-
-        font-size: 11px;
-    }
-
+.smv-heading p {
+    margin: 0;
+    color: #c4d0d9;
+    font-size: 17px;
+    line-height: 1.7;
 }
 
 
 /* =====================================================
-   THIRD VIDEO SECTION
-   HORIZONTAL VIDEO CARDS
+   MAIN LAYOUT
 ===================================================== */
 
-.video-section-03 {
+.smv-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: stretch;
+}
+
+
+/* =====================================================
+   YOUTUBE PLAYER
+===================================================== */
+
+.smv-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
     position: relative;
-}
-
-
-/* MAIN LAYOUT */
-
-.video-section-03 .video-layout {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 22px;
-
-    width: 100%;
-}
-
-
-/* MAIN VIDEO */
-
-.video-section-03 .main-video {
-
-    width: 100%;
-
     overflow: hidden;
+
+    background: #000000;
 
     border-radius: 22px;
 
-    background: #000;
-
     box-shadow:
-        0 20px 55px rgba(0, 0, 0, .18);
+        0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 
-.video-section-03 .main-video video {
-
-    display: block;
+.smv-player iframe {
+    position: absolute;
+    inset: 0;
 
     width: 100%;
+    height: 100%;
 
-    aspect-ratio: 16 / 9;
-
-    background: #000;
-
-    object-fit: contain;
+    border: 0;
+    display: block;
 }
 
 
 /* =====================================================
-   VIDEO LIST — HORIZONTAL
+   VIDEO LIST
 ===================================================== */
 
-.video-section-03 .video-list-03 {
-
-    width: 100%;
-
+.smv-list {
     display: flex;
-
-    flex-direction: row;
-
-    flex-wrap: nowrap;
-
+    flex-direction: column;
     gap: 14px;
 
-    overflow-x: auto;
-
-    padding: 5px 3px 12px;
-
-    scrollbar-width: thin;
+    width: 100%;
 }
 
 
@@ -2263,77 +2068,67 @@ footer p{margin-top:10px;color:#bbaaa1;font-size:14px}
    VIDEO CARD
 ===================================================== */
 
-.video-section-03 .video-card-03 {
+.smv-card {
+    width: 100%;
+    min-height: 105px;
 
-    position: relative;
+    padding: 20px 24px;
 
-    flex: 0 0 210px;
+    box-sizing: border-box;
 
-    min-height: 85px;
-
-    padding: 16px 18px;
-
-    border: 1px solid rgba(23, 107, 80, .12);
-
-    border-radius: 16px;
-
-    background: #fff;
-
-    color: #17231e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
     text-align: left;
 
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 17px;
+
+    color: #ffffff;
+
     cursor: pointer;
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 5px;
+    font-family: inherit;
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease,
-        background .25s ease;
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
-/* HOVER */
+.smv-card:hover {
+    transform: translateY(-2px);
 
-.video-section-03 .video-card-03:hover {
+    background: rgba(255, 255, 255, 0.10);
 
-    transform: translateY(-3px);
-
-    border-color:
-        rgba(201, 20, 30, .28);
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, .10);
+    border-color: rgba(255, 255, 255, 0.30);
 }
 
 
-/* TITLE */
+.smv-card strong {
+    margin-bottom: 7px;
 
-.video-section-03 .video-card-03 strong {
+    color: #ffffff;
 
-    color: #176b50;
+    font-size: 19px;
 
-    font-size: 15px;
+    line-height: 1.3;
 
     font-weight: 800;
 }
 
 
-/* SUBTEXT */
+.smv-card span {
+    color: rgba(255, 255, 255, 0.72);
 
-.video-section-03 .video-card-03 span {
-
-    color: #718079;
-
-    font-size: 12px;
+    font-size: 14px;
 
     line-height: 1.5;
 }
@@ -2343,80 +2138,55 @@ footer p{margin-top:10px;color:#bbaaa1;font-size:14px}
    ACTIVE CARD
 ===================================================== */
 
-.video-section-03 .video-card-03.active {
+.smv-card.active {
+    background: rgba(255, 255, 255, 0.10);
 
-    background:
-        linear-gradient(
-            135deg,
-            #176b50,
-            #0f503c
-        );
-
-    border-color: #176b50;
+    border-color: #d7a928;
 
     box-shadow:
-        0 12px 30px rgba(23, 107, 80, .20);
+        0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
 
-.video-section-03 .video-card-03.active strong {
-
-    color: #fff;
-}
-
-
-.video-section-03 .video-card-03.active span {
-
-    color: rgba(255,255,255,.80);
-}
-
-
-/* LEFT ACTIVE INDICATOR */
-
-.video-section-03 .video-card-03.active::before {
-
+.smv-card.active::before {
     content: "";
 
     position: absolute;
-
-    left: 0;
-
-    top: 14px;
-
-    bottom: 14px;
-
-    width: 4px;
-
-    border-radius:
-        0 5px 5px 0;
-
-    background: #d5a53b;
 }
 
 
 /* =====================================================
-   SCROLLBAR
+   ACCESSIBILITY
 ===================================================== */
 
-.video-section-03 .video-list-03::-webkit-scrollbar {
-
-    height: 6px;
+.smv-card:focus-visible {
+    outline: 3px solid #f2c94c;
+    outline-offset: 3px;
 }
 
 
-.video-section-03 .video-list-03::-webkit-scrollbar-track {
+/* =====================================================
+   TABLET
+===================================================== */
 
-    background: #eef2ef;
+@media (max-width: 1000px) {
 
-    border-radius: 20px;
-}
+    .smv-layout {
+        grid-template-columns: minmax(0, 1fr) 290px;
+        gap: 18px;
+    }
 
 
-.video-section-03 .video-list-03::-webkit-scrollbar-thumb {
+    .smv-card {
+        min-height: 95px;
+        padding: 17px 18px;
+    }
 
-    background: #176b50;
 
-    border-radius: 20px;
+    .smv-card strong {
+        font-size: 17px;
+    }
+
 }
 
 
@@ -2424,33 +2194,687 @@ footer p{margin-top:10px;color:#bbaaa1;font-size:14px}
    MOBILE
 ===================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
-    .video-section-03 .main-video {
-
-        border-radius: 16px;
+    .smv-section {
+        padding: 60px 0;
     }
 
 
-    .video-section-03 .video-card-03 {
-
-        flex: 0 0 180px;
-
-        min-height: 75px;
-
-        padding: 13px 15px;
+    .smv-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
     }
 
 
-    .video-section-03 .video-card-03 strong {
-
-        font-size: 14px;
+    .smv-player {
+        border-radius: 17px;
     }
 
 
-    .video-section-03 .video-card-03 span {
+    .smv-list {
+        flex-direction: row;
 
-        font-size: 11px;
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        gap: 12px;
+
+        padding: 4px 3px 12px;
+
+        scrollbar-width: thin;
+    }
+
+
+    .smv-card {
+        flex: 0 0 210px;
+
+        min-height: 90px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .smv-section {
+        padding: 48px 0;
+    }
+
+
+    .smv-heading {
+        margin-bottom: 28px;
+    }
+
+
+    .smv-heading h2 {
+        font-size: 29px;
+    }
+
+
+    .smv-heading p {
+        font-size: 15px;
+    }
+
+
+    .smv-player {
+        border-radius: 14px;
+    }
+
+
+    .smv-card {
+        flex-basis: 185px;
+
+        min-height: 82px;
+
+        padding: 14px 16px;
+
+        border-radius: 14px;
+    }
+
+
+    .smv-card strong {
+        font-size: 15px;
+    }
+
+
+    .smv-card span {
+        font-size: 12px;
+    }
+
+}
+
+/* =========================================
+   MOBILE FORM RESPONSIVE FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-container,
+    .form-wrapper,
+    .application-form,
+    form {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-container {
+        margin: 0;
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    /* Header */
+
+    .form-header {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 10px;
+    }
+
+    .form-header img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Form fields */
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .line-input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Labels */
+
+    label {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* Form rows */
+
+    .form-row {
+        display: block;
+        width: 100%;
+    }
+
+    .form-group {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+.smv02-section {
+    width: 100%;
+    padding: 80px 0;
+    background: #102f4a;
+    color: #fff;
+}
+
+.smv02-heading {
+    margin-bottom: 40px;
+}
+
+.smv02-eyebrow {
+    color: #f2c94c;
+    font-weight: 700;
+}
+
+.smv02-heading h2 {
+    margin: 10px 0;
+    font-size: clamp(30px, 4vw, 52px);
+}
+
+.smv02-heading p {
+    color: #c8d3dc;
+}
+
+.smv02-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+}
+
+.smv02-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+    border-radius: 20px;
+}
+
+.smv02-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.smv02-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.smv02-card {
+    min-height: 100px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.05);
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+}
+
+.smv02-card strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.smv02-card span {
+    color: #cbd5dc;
+}
+
+.smv02-card.active {
+    border-color: #d7a928;
+    background: rgba(255,255,255,.12);
+}
+
+@media (max-width: 800px) {
+
+    .smv02-section {
+        padding: 55px 0;
+    }
+
+    .smv02-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .smv02-list {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .smv02-card {
+        flex: 0 0 210px;
+    }
+
+}
+/* =====================================================
+   SAJHA MORCHA
+   VIDEO SECTION 03
+   UNIQUE CSS — smv03-
+===================================================== */
+
+.smv03-section {
+    width: 100%;
+    padding: 80px 0;
+    background: #102f4a;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.smv03-heading {
+    max-width: 850px;
+    margin-bottom: 42px;
+}
+
+.smv03-eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    color: #f2c94c;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.smv03-heading h2 {
+    margin: 0 0 14px;
+
+    color: #ffffff;
+
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.smv03-heading p {
+    margin: 0;
+
+    max-width: 700px;
+
+    color: #c8d4dd;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   MAIN VIDEO + VIDEO LIST
+===================================================== */
+
+.smv03-layout {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        340px;
+
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+/* =====================================================
+   MAIN YOUTUBE PLAYER
+===================================================== */
+
+.smv03-player {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000000;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.smv03-player iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+
+/* =====================================================
+   VIDEO LIST
+===================================================== */
+
+.smv03-list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =====================================================
+   VIDEO CARD
+===================================================== */
+
+.smv03-card {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 20px 23px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 17px;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.smv03-card:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: rgba(255, 255, 255, 0.30);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.smv03-card strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   CARD DESCRIPTION
+===================================================== */
+
+.smv03-card span {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   ACTIVE VIDEO CARD
+===================================================== */
+
+.smv03-card.active {
+    background: rgba(255, 255, 255, 0.11);
+
+    border-color: #d7a928;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Small active indicator */
+
+.smv03-card.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+
+    width: 4px;
+
+    background: #f2c94c;
+
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* =====================================================
+   KEYBOARD ACCESSIBILITY
+===================================================== */
+
+.smv03-card:focus-visible {
+    outline: 3px solid #f2c94c;
+
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .smv03-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            290px;
+
+        gap: 18px;
+    }
+
+
+    .smv03-card {
+        min-height: 92px;
+
+        padding: 17px 19px;
+    }
+
+
+    .smv03-card strong {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .smv03-section {
+        padding: 60px 0;
+    }
+
+
+    .smv03-heading {
+        margin-bottom: 30px;
+    }
+
+
+    .smv03-layout {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    .smv03-player {
+        border-radius: 17px;
+    }
+
+
+    /*
+       Horizontal video cards on mobile
+    */
+
+    .smv03-list {
+        flex-direction: row;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        gap: 12px;
+
+        padding:
+            4px 3px 12px;
+
+        scrollbar-width: thin;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .smv03-card {
+        flex: 0 0 210px;
+
+        min-height: 88px;
+
+        border-radius: 15px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .smv03-section {
+        padding: 48px 0;
+    }
+
+
+    .smv03-heading h2 {
+        font-size: 29px;
+
+        line-height: 1.3;
+    }
+
+
+    .smv03-heading p {
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    .smv03-player {
+        border-radius: 14px;
+    }
+
+
+    .smv03-card {
+        flex: 0 0 185px;
+
+        min-height: 82px;
+
+        padding: 14px 16px;
+
+        border-radius: 14px;
+    }
+
+
+    .smv03-card strong {
+        font-size: 15px;
+    }
+
+
+    .smv03-card span {
+        font-size: 12px;
+    }
+
+
+    .smv03-card.active::before {
+        top: 14px;
+        bottom: 14px;
     }
 
 }
