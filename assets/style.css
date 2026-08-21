@@ -184,10 +184,9 @@ section[id]{scroll-margin-top:90px}
   object-fit:cover;
 }
 .hero-poster{
-  position:absolute;
-  inset:0;
-  background:url("assets/images/hero-poster.jpg") center/cover no-repeat;
-  z-index:0;
+  
+  z-index:-1;
+  
 }
 .hero-video{z-index:1}
 .hero-overlay{
