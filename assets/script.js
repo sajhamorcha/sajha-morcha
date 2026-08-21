@@ -737,3 +737,514 @@ if (
     });
 
 }
+
+
+
+ /* Youtube video  */
+
+
+const campaignYoutubePlayer =
+    document.getElementById("campaignYoutubePlayer");
+
+const campaignVideoCards =
+    document.querySelectorAll(".campaign-video-card");
+
+
+campaignVideoCards.forEach(card => {
+
+    card.addEventListener("click", function () {
+
+        const videoId =
+            this.dataset.video;
+
+        if (!videoId) return;
+
+
+        /* Change YouTube video */
+
+        campaignYoutubePlayer.src =
+            "https://www.youtube.com/embed/" +
+            videoId +
+            "?autoplay=1";
+
+
+        /* Remove active */
+
+        campaignVideoCards.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        /* Set active */
+
+        this.classList.add("active");
+
+    });
+
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const player =
+        document.getElementById("campaignYoutubePlayer03");
+
+    const cards =
+        document.querySelectorAll(".campaign-video-card-03");
+
+
+    /* Stop if this video section doesn't exist */
+
+    if (!player || cards.length === 0) {
+        return;
+    }
+
+
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function () {
+
+            const videoId =
+                this.getAttribute("data-video");
+
+
+            /* Make sure video ID exists */
+
+            if (!videoId) {
+                return;
+            }
+
+
+            /* Change YouTube video */
+
+            player.src =
+                "https://www.youtube.com/embed/" +
+                videoId +
+                "?autoplay=1";
+
+
+            /* Remove active from all cards */
+
+            cards.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+            /* Add active to clicked card */
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+});
+
+/* =====================================================
+   SAJHA MORCHA UNIQUE YOUTUBE SYSTEM
+   Prefix: smv-
+===================================================== */
+
+(function () {
+
+    "use strict";
+
+
+    /*
+     * Convert different YouTube formats
+     * into a normal video ID.
+     */
+    function smvGetYoutubeId(value) {
+
+        if (!value) {
+            return null;
+        }
+
+        value = String(value).trim();
+
+
+        /*
+         * Already a YouTube ID
+         *
+         * Example:
+         * JsSMJaa2vJQ
+         */
+        if (
+            !value.includes("/") &&
+            !value.includes("?") &&
+            !value.includes("=")
+        ) {
+            return value;
+        }
+
+
+        try {
+
+            const url = new URL(value);
+
+
+            /*
+             * youtu.be/VIDEO_ID
+             */
+            if (url.hostname === "youtu.be") {
+
+                return url.pathname
+                    .replace(/^\/+/, "")
+                    .split("/")[0];
+
+            }
+
+
+            /*
+             * youtube.com/watch?v=VIDEO_ID
+             */
+            const watchId =
+                url.searchParams.get("v");
+
+            if (watchId) {
+                return watchId;
+            }
+
+
+            /*
+             * youtube.com/embed/VIDEO_ID
+             */
+            const parts =
+                url.pathname.split("/");
+
+            const embedIndex =
+                parts.indexOf("embed");
+
+            if (
+                embedIndex !== -1 &&
+                parts[embedIndex + 1]
+            ) {
+
+                return parts[embedIndex + 1];
+
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "Invalid YouTube URL:",
+                value
+            );
+
+        }
+
+        return null;
+    }
+
+
+    /*
+     * =================================================
+     * SETUP ALL SMV VIDEO CARDS
+     * =================================================
+     */
+
+    function smvInitializeVideos() {
+
+        const cards =
+            document.querySelectorAll(".smv-card");
+
+
+        if (!cards.length) {
+            return;
+        }
+
+
+        cards.forEach(function (card) {
+
+            card.addEventListener("click", function () {
+
+                /*
+                 * Which player belongs to this card?
+                 */
+                const playerId =
+                    this.dataset.smpPlayer;
+
+
+                /*
+                 * Which video should play?
+                 */
+                const videoValue =
+                    this.dataset.smpVideo;
+
+
+                if (
+                    !playerId ||
+                    !videoValue
+                ) {
+                    return;
+                }
+
+
+                /*
+                 * Find the correct player.
+                 */
+                const player =
+                    document.getElementById(playerId);
+
+
+                if (!player) {
+
+                    console.warn(
+                        "SMV player not found:",
+                        playerId
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Convert URL/ID to YouTube ID.
+                 */
+                const videoId =
+                    smvGetYoutubeId(videoValue);
+
+
+                if (!videoId) {
+
+                    console.warn(
+                        "Invalid SMV YouTube video:",
+                        videoValue
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Change ONLY this section's
+                 * YouTube player.
+                 */
+                player.src =
+                    "https://www.youtube.com/embed/" +
+                    encodeURIComponent(videoId) +
+                    "?autoplay=1&rel=0";
+
+
+                /*
+                 * Find the parent section.
+                 */
+                const section =
+                    this.closest(".smv-section");
+
+
+                if (section) {
+
+                    /*
+                     * Remove active from ONLY
+                     * this section's cards.
+                     */
+                    section
+                        .querySelectorAll(".smv-card")
+                        .forEach(function (item) {
+
+                            item.classList.remove("active");
+
+                        });
+
+                }
+
+
+                /*
+                 * Activate clicked card.
+                 */
+                this.classList.add("active");
+
+            });
+
+        });
+
+    }
+
+
+    /*
+     * Wait until HTML is ready.
+     */
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            smvInitializeVideos
+        );
+
+    } else {
+
+        smvInitializeVideos();
+
+    }
+
+})();
+
+/* =====================================================
+   SAJHA MORCHA
+   VIDEO SECTION 02
+===================================================== */
+
+(function () {
+
+    "use strict";
+
+
+    const section =
+        document.getElementById("smv02");
+
+
+    if (!section) {
+        return;
+    }
+
+
+    const player =
+        document.getElementById("smv02MainPlayer");
+
+
+    const cards =
+        section.querySelectorAll(".smv02-card");
+
+
+    if (!player || !cards.length) {
+        return;
+    }
+
+
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function () {
+
+            const videoId =
+                this.getAttribute("data-video");
+
+
+            if (!videoId) {
+                return;
+            }
+
+
+            /*
+             * Change ONLY Section 02 player
+             */
+
+            player.src =
+                "https://www.youtube.com/embed/" +
+                encodeURIComponent(videoId) +
+                "?autoplay=1&rel=0";
+
+
+            /*
+             * Remove active class
+             * only from Section 02
+             */
+
+            cards.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+            /*
+             * Activate clicked card
+             */
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+
+})();
+
+/* =====================================================
+   SAJHA MORCHA
+   VIDEO SECTION 03
+===================================================== */
+
+(function () {
+
+    "use strict";
+
+
+    const section =
+        document.getElementById("smv03");
+
+
+    if (!section) {
+        return;
+    }
+
+
+    const player =
+        document.getElementById("smv03MainPlayer");
+
+
+    const cards =
+        section.querySelectorAll(".smv03-card");
+
+
+    if (!player || !cards.length) {
+        return;
+    }
+
+
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function () {
+
+            const videoId =
+                this.getAttribute("data-video");
+
+
+            if (!videoId) {
+                return;
+            }
+
+
+            /*
+             * Change ONLY Section 03 player
+             */
+
+            player.src =
+                "https://www.youtube.com/embed/" +
+                encodeURIComponent(videoId) +
+                "?autoplay=1&rel=0";
+
+
+            /*
+             * Remove active class
+             * only from Section 03
+             */
+
+            cards.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+            /*
+             * Activate clicked card
+             */
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+
+})();
