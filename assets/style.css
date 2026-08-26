@@ -3012,6 +3012,24 @@ footer p{margin-top:10px;color:#bbaaa1;font-size:14px}
 }
 
 
+.footer-developer {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.footer-developer a {
+    color: #f2c14e;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 4px;
+    transition: all 0.25s ease;
+}
+
+.footer-developer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 /* =====================================================
    TABLET
 ===================================================== */
